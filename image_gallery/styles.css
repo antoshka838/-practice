@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Указываем box sizing */
+html{
+  font-size: 16px;
+  font-family: 'Roboto';
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration: none;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+button{
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+header{
+  background-image: linear-gradient(0.25turn, #343333, #484848, #282828);
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  padding: 21px 0 8px;
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo{
+  padding-top: 12px;
+  padding-bottom: 19px;
+}
+
+.logo{
+  min-width: 267px;
+}
+
+.nav {
+  color: #FFFDFA;
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: 29px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+
+.search-container{
+  display: flex;
+  justify-content: center;
+}
+
+.image-search-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: 53%;
+  height: 296px;
+  flex-direction: column;
+  margin-top: 65px;
+  margin-bottom: 101px;
+}
+
+h1{
+  font-size: 64px;
+  font-weight: 700;
+}
+
+.highlight{
+  color: #F17900;
+}
+
+form{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  position: relative;
+}
+
+.search-input{
+  width: 100%;
+  background-color: #3939390D;
+  border: none;
+  padding: 22px 16px;
+  border-radius: 16px;
+}
+
+input::placeholder{
+  color:#C4C4C4;
+  font-family: "Montserrat";
+}
+
+.search-button{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.contant-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 147px;
+}
+
+.content{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  max-width: 75%;
+  scroll-margin-top: 50px ;
+}
+
+.gallery-content{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px;
+  scroll-margin-top: 50px;
+}
+
+.blur{
+  filter: blur(5px);
+  transition: filter 0.3s ease;
+  pointer-events: none;
+}
+
+.content_img{
+  height: 244px;
+  width: 285px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.footer{
+  width: 100%;
+  height: 374px;
+  background-image: linear-gradient(00.25turn, #343333, #484848, #282828);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.footer-container{
+  min-width: 87%;
+}
+
+.footer-information{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.copyright{
+  color: #FFFFFF99;
+  position: relative;
+  right: 20px;
+}
+
+.gallery-info{
+  font-size: 14px;
+  color: #FFFFFF99;
+  max-width: 248px;
+  margin: 25px 0;
+  line-height: 22px;
+}
+
+.links{
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.links a{
+  margin-right: 12px;
+}
+
+.title{
+  text-transform: uppercase;
+  line-height: 18px;
+  font-size: 18px;
+  color: #E0A449;
+  margin-bottom: 26px;
+}
+
+li a {
+  color: #FFFFFF99;
+  font-size: 20px;
+  line-height: 19px;
+  font-weight: 400;
+}
+
+.footer-list{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 1100px;
+  min-height: 537px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-content{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  scroll-margin-top: 245px;
+}
+
+.modal-close{
+  position: absolute;
+  right: 0;
+  margin-top: 15px;
+  margin-right: 12px;
+}
+
+.modal_btn{
+  background-color: #F17900;
+  border-radius: 50px;
+  width: 57px;
+  height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-modal{
+  width: 724px;
+  height: 534px;
+  object-fit: cover;
+}
+
+.hidden{
+  display: none;
+}
+
+@media (max-width: 1280px) {
+    
+}

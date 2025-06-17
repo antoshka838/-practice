@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Images</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="header">
+      <div class="container">
+        <div class="header-logo">
+          <img src="./imgs/logo.png" alt="Modsen logo" class="logo">
+        </div>
+        <a href="#gallery" class="nav">Gallery</a>
+      </div>
+  </header>
+  <main class="main">
+    <div class="search-container">
+      <div class="image-search-section">
+        <h1>Let's Find Some <span class="highlight">Images</span> Here!</h1>
+        <form action="" method="get">
+          <input type="text" placeholder="Search High Resolution Images" class="search-input">
+          <button type="submit" class="search-button">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.5 25C20.299 25 25 20.299 25 14.5C25 8.70101 20.299 4 14.5 4C8.70101 4 4 8.70101 4 14.5C4 20.299 8.70101 25 14.5 25Z" stroke="#393939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M28 28L22 22" stroke="#393939" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="contant-container">
+      <div class="content" id="gallery">
+        <div class="gallery-content" id="gallery-content">
+          
+        </div>
+
+        <div class="modal hidden">
+          <button class="modal_btn" id="previous_btn">
+            <img src="./imgs/left.png" alt="Button left">
+          </button>
+          <div class="modal-content" id="modal-content">
+            <img src="" alt="" class="img-modal">
+            <button class="modal-close">
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.41421L1.41421 0L7.20711 5.79289L13 0L14.4142 1.41421L7.20711 8.62132L0 1.41421Z" fill="#FBFBFB"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13.2071L1.41421 14.6213L7.20711 8.82844L13 14.6213L14.4142 13.2071L7.20711 6.00002L0 13.2071Z" fill="#FBFBFB"/>
+              </svg>
+            </button>
+          </div>
+          <button class="modal_btn" id="next-btn">
+            <img src="./imgs/right.png" alt="Button right">
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-information">
+        <div class="gallery-description">
+          <img src="./imgs/logo.png" alt="Modsen logo" class="logo">
+          <p class="gallery-info">We have images that capture every mood and inspire every vision. From breathtaking landscapes to vibrant portraits.</p>
+          <div class="links">
+            <a href="#"><img src="./imgs/1.svg" alt="Twitter"></a>
+            <a href="#"><img src="./imgs/2.svg" alt="Facebook"></a>
+            <a href="#"><img src="./imgs/3.svg" alt="Instagrame"></a>
+            <a href="#"><img src="./imgs/4.svg" alt="Github"></a>
+          </div>
+        </div>
+        <div class="company-section">
+          <p class="title">Company</p>
+          <ul class="footer-list">
+              <li><a href="#">About</a></li>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Works</a></li>
+              <li><a href="##">Career</a></li>
+            </ul>
+        </div>
+        <div class="help-section">
+          <p class="title">Help</p>
+            <ul class="footer-list">
+              <li><a href="#">Customer Support</a></li>
+              <li><a href="#">Delivery Details</a></li>
+              <li><a href="#">Terms & Conditions</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+        <div class="faq-section">
+          <p class="title">FAQ</p>
+            <ul class="footer-list">
+              <li><a href="#">Account</a></li>
+              <li><a href="#">Manage Deliveries</a></li>
+              <li><a href="#">Orders</a></li>
+              <li><a href="#">Payments</a></li>
+            </ul>
+        </div>
+        <div class="resources-section">
+          <p class="title">Resources</p>
+            <ul class="footer-list">
+              <li><a href="#">Free eBooks</a></li>
+              <li><a href="#">Development Tutorial</a></li>
+              <li><a href="#">How to - Blog</a></li>
+              <li><a href="#">Youtube Playlist</a></li>
+            </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>Modsen.gallery © 2000-2025, All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
