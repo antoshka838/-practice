@@ -1,7 +1,6 @@
 import { CLIENT_ID } from "../config.js";
 
 const galleryContent = document.getElementById('gallery-content');
-const gallery = document.getElementById('gallery');
 const form = document.querySelector('form');
 const searchInput = document.querySelector('.search-input');
 const modal = document.querySelector('.modal');
@@ -36,6 +35,7 @@ const searchPhotos = async (query) => {
         const data = await response.json();
         if (response.ok && data.results.length) {
             state = data.results;
+            console.log(state)
             setPhotos();
         }else {
             galleryContent.innerHTML = `<p>No results found for "${query}".</p>`;
