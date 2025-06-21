@@ -1,7 +1,6 @@
 import { CLIENT_ID } from "../config.js";
 
 const galleryContent = document.getElementById('gallery-content');
-const gallery = document.getElementById('gallery');
 const form = document.querySelector('form');
 const searchInput = document.querySelector('.search-input');
 const modal = document.querySelector('.modal');
@@ -9,8 +8,10 @@ const closeBtn = document.querySelector('.modal-close');
 const modalImg = document.querySelector('.img-modal');
 const previousBtn = document.getElementById('previous_btn');
 const nextBtn = document.getElementById('next-btn');
+const overlay = document.querySelector('.modal-overlay');
 
 let state = [];
+let originalState = [];
 let currentIndex = 0;
 
 const fetchPhotos = async () => {
@@ -20,7 +21,9 @@ const fetchPhotos = async () => {
         const data = await response.json();
 
         if (response.ok && data.length){
-            state = data;
+            originalState = data;
+            state = [...originalState];
+            console.log(state)
             setPhotos();
         }
     } catch (error) {
@@ -28,25 +31,23 @@ const fetchPhotos = async () => {
     }
 }
 
+const searchPhotos = (query) => {
+    const filtred = state.filter(photo => {
+        const desc = photo.alt_description?.toLowerCase() || '';
+        return desc.includes(query.toLowerCase());
+    })
 
-const searchPhotos = async (query) => {
-    try {
-        const link = `https://api.unsplash.com/search/photos?client_id=${CLIENT_ID}&query=${query}&per_page=12`;
-        const response = await fetch(link);
-        const data = await response.json();
-        if (response.ok && data.results.length) {
-            state = data.results;
-            setPhotos();
-        }else {
-            galleryContent.innerHTML = `<p>No results found for "${query}".</p>`;
-        }
-    } catch (error) {
-        console.error(error);
+    if (filtred.length){
+        galleryContent.innerHTML = renderItem(filtred);
+        imageClicker()
+    }else{
+        galleryContent.innerHTML = `<p>No results found for "${query}".</p>`;
     }
 }
 
 
-const renderItem = () => {
+const renderItem = (photos) => {
+    state = photos;
     return state
     .map(({urls: {regular}, alt_description}, index) =>{
         return `<a href="#modal-content">
@@ -57,17 +58,33 @@ const renderItem = () => {
 }
 
 const setPhotos = () => {
-    galleryContent.innerHTML = renderItem();
-
+    galleryContent.innerHTML = renderItem(state);
     imageClicker();
 }
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     const query = searchInput.value.trim();
-    if (query) {
-        searchPhotos(query);
+    
+    const allowedRegex = /^[a-zA-Z0-9!$&*\-=^`|~#%'+/?_{ }]+$/;
+
+    if(query.length === 0){
+        state = [...originalState];
+        setPhotos()
+        return;
     }
+
+    if (query.length < 2 || query.length > 40){
+        galleryContent.innerHTML = `<p class="error-message">Please enter between 2 and 40 characters.</p>`;
+        return;
+    }
+
+    if(!allowedRegex.test(query)){
+        galleryContent.innerHTML = `<p class="error-message">Invalid characters entered.<br>Allowed: letters, numbers and ! $ & * - = ^ \` | ~ # % ' + / ? _ { }</p>`;
+        return;
+    }
+
+    searchPhotos(query)
 });
 
 const imageClicker = () => {
@@ -79,15 +96,28 @@ const imageClicker = () => {
 
             galleryContent.classList.add('blur')
 
-            modal.classList.remove('hidden')
+            modal.classList.remove('hidden');
+            overlay.classList.remove('hidden');
+            document.body.classList.add('body-no-scroll');
         }
     })
 }
 
-closeBtn.addEventListener('click', () => {
+const closeModal = () => {
     modal.classList.add('hidden');
+    overlay.classList.add('hidden');
     galleryContent.classList.remove('blur');
-})
+    document.body.classList.remove('body-no-scroll');
+}
+
+modal.addEventListener('click', (event) => {
+    if(event.target === modal){
+        closeModal();
+    }
+});
+
+closeBtn.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
 
 const createModal = (index) => {
     const photo = state[index];
@@ -98,13 +128,11 @@ const createModal = (index) => {
 
 previousBtn.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + state.length) % state.length;
-    console.log(currentIndex);
     createModal(currentIndex);
 })
 
 nextBtn.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % state.length;
-    console.log(currentIndex);
     createModal(currentIndex);
 })
 
