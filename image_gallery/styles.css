@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+  --hover-scale-for-links: 1.2;
+  --hover-transition: transform 0.7s ease, color 0.7s ease;
+  --hover-scale-for-imgs: 1.1;
+}
+
 /* Указываем box sizing */
 html{
   font-size: 16px;
@@ -43,6 +50,10 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+}
+
+.body-no-scroll {
+  overflow: hidden;
 }
 
 /* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
@@ -128,9 +139,14 @@ header{
   font-weight: 400;
   margin-top: 29px;
   margin-bottom: 20px;
+  transition: var(--hover-transition);
   text-decoration: none;
 }
 
+.nav:hover{
+  color: #dcdde1;
+  transform: scale(var(--hover-scale-for-links));
+}
 
 .search-container{
   display: flex;
@@ -223,6 +239,11 @@ input::placeholder{
   width: 285px;
   object-fit: cover;
   cursor: pointer;
+  transition: var(--hover-transition);
+}
+
+.content_img:hover{
+  transform: scale(var(--hover-scale-for-imgs));
 }
 
 .footer{
@@ -268,6 +289,14 @@ input::placeholder{
   margin-right: 12px;
 }
 
+.links a img {
+  transition: var(--hover-transition); 
+}
+
+.links a img:hover{
+  transform: scale(var(--hover-scale-for-links));
+}
+
 .title{
   text-transform: uppercase;
   line-height: 18px;
@@ -276,17 +305,33 @@ input::placeholder{
   margin-bottom: 26px;
 }
 
-li a {
-  color: #FFFFFF99;
-  font-size: 20px;
-  line-height: 19px;
-  font-weight: 400;
-}
-
 .footer-list{
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.footer-list li a {
+  color: #FFFFFF99;
+  display: inline-block;
+  font-size: 20px;
+  line-height: 19px;
+  font-weight: 400;
+  transition: var(--hover-transition);
+}
+
+.footer-list li a:hover{
+  transform: scale(var(--hover-scale-for-links));
+  color: #dcdde1;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 998;
 }
 
 .modal{
@@ -296,6 +341,7 @@ li a {
   transform: translate(-50%, -50%);
   width: clamp(371px, 76vw, 1097px);
   height: clamp(432px, 37.2vw, 537px);
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -332,6 +378,12 @@ li a {
 
 .hidden{
   display: none;
+}
+
+.error-message{
+  color: red;
+  font-size: 24px;
+  text-align: center;
 }
 
 @media (max-width: 1040px){
