@@ -136,5 +136,35 @@ nextBtn.addEventListener('click', () => {
     createModal(currentIndex);
 })
 
+const changeTheme = () => {
+    const themes = ['light-theme', 'dark-theme', 'multi-colored-theme'];
+    const themeIcons = {
+        'light-theme': './imgs/light-theme.png',
+        'dark-theme': './imgs/dark-theme.png',
+        'multi-colored-theme': './imgs/multicolor-theme.png'
+    }
 
+    const body = document.body;
+    let currentTheme = localStorage.getItem('theme') || 'light-theme';
+
+    body.classList.add(currentTheme);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const button = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        themeIcon.src = themeIcons[currentTheme];
+
+        button.addEventListener('click', () => {
+            body.classList.remove(currentTheme);
+            const nextIndex = (themes.indexOf(currentTheme) + 1) % themes.length;
+            currentTheme = themes[nextIndex];
+            body.classList.add(currentTheme);
+            localStorage.setItem('theme', currentTheme);
+            themeIcon.src = themeIcons[currentTheme];
+        })
+    })
+}
+
+changeTheme();
 fetchPhotos();

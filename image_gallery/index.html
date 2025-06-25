@@ -6,13 +6,18 @@
   <title>Images</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
-<body>
+<body class="light-theme">
   <header class="header">
       <div class="container">
         <div class="header-logo">
           <img src="./imgs/logo.png" alt="Modsen logo" class="logo">
         </div>
-        <a href="#gallery" class="nav">Gallery</a>
+        <div class="nav-block">
+          <button id="theme-toggle">
+            <img src="./imgs/light-theme.png" class="change-theme" id="theme-icon"/>
+          </button>
+          <a href="#gallery" class="nav">Gallery</a>
+        </div>
       </div>
   </header>
   <main class="main">
