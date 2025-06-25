@@ -1,4 +1,6 @@
-import { CLIENT_ID } from "../config.js";
+// import { CLIENT_ID } from "../config.js";
+
+const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
 
 const galleryContent = document.getElementById('gallery-content');
 const form = document.querySelector('form');
