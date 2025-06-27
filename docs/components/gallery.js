@@ -3,7 +3,7 @@ import { imageClicker } from "./modal.js";
 
 export const fetchPhotos = async () => {
     try {
-        const response = await fetch('./netlify/functions/getPhotos');
+        const response = await fetch('/.netlify/functions/getPhotos');
         const data = await response.json();
 
         if (response.ok && data.length){
