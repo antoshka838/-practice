@@ -1,6 +1,6 @@
 [build]
   publish = "docs"
-  functions = "docs/netlify/functions/"
+  functions = "docs/netlify/functions"
 
 
 [functions]
