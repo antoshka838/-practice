@@ -1,0 +1,71 @@
+@import url('./modal.css');
+
+.content-container{
+  display: flex;
+  justify-content: center;
+  margin-bottom:var(--content-container-mb);
+}
+
+.content{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: var(--content-w);
+  scroll-margin-top: var(--content-smt);
+}
+
+.gallery-content{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gall-cont-gap);
+  scroll-margin-top: var(--gall-cont-smt);
+}
+
+.blur{
+  filter: var(--blur);
+  transition: filter 0.3s ease;
+  pointer-events: none;
+}
+
+.photo-item{
+  transition: var(--hover-transition);
+  position: relative;
+}
+
+.photo-item:hover{
+  transform: scale(var(--hover-scale-for-imgs));
+}
+
+.content_img{
+  height: var(--content-img-h);
+  width: var(--content-img-w);
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.favorite-icon{
+  position: absolute;
+  font-size: var(--fav-icon-fs);
+  top: var(--fav-icon-top);
+  left: var(--fav-left);
+  cursor: pointer;
+  color: grey;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+.favorite-icon.active{
+  color: red;
+}
+
+.hidden{
+  display: none;
+}
+
+.error-message{
+  color: red;
+  font-size: var(--err-message-fs);
+  text-align: center;
+}

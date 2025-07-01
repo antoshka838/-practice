@@ -8,6 +8,8 @@ export const searchPhotos = (query) => {
         return desc.includes(query.toLowerCase());
     })
 
+    store.state = filtred;
+
     if (filtred.length){
         galleryContent.innerHTML = renderItem(filtred);
         imageClicker()

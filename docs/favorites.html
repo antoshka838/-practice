@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Images</title>
+  <title>Favorite images</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body class="light-theme">
@@ -16,13 +16,12 @@
           <button class="burger-button nav">Menu</button>
           <div class="nav-block">
             <button class="close-button nav">Close</button>
-            <a href="./favorites.html" class="nav">Favorites</a>
             <select name="theme" id="theme-select" class="nav theme-select">
               <option value="light-theme">Light</option>
               <option value="dark-theme">Dark</option>
               <option value="multi-colored-theme">Colorful</option>
             </select>
-            <a href="#gallery" class="nav">Gallery</a>
+            <a href="./index.html" class="nav">Gallery</a>
           </div>
         </div>
       </div>
@@ -30,7 +29,7 @@
   <main class="main">
     <div class="search-container">
       <div class="image-search-section">
-        <h1>Let's Find Some <span class="highlight">Images</span> Here!</h1>
+        <h1>Your favorites <span class="highlight">Images</span></h1>
         <form action="" method="get">
           <input type="text" placeholder="Search High Resolution Images" class="search-input">
           <button type="submit" class="search-button">
@@ -62,7 +61,7 @@
               <path fill-rule="evenodd" clip-rule="evenodd" d="M0 13.2071L1.41421 14.6213L7.20711 8.82844L13 14.6213L14.4142 13.2071L7.20711 6.00002L0 13.2071Z" fill="#FBFBFB"/>
               </svg>
             </button>
-            <button class="favorite-icon modal-favorite" >♡</button>
+            <span class="modal-favorite">♡</span>
           </div>
           <button class="modal_btn" id="next-btn">
             <img src="./assets/right.png" alt="Button right">
@@ -126,6 +125,7 @@
       </div>
     </div>
   </footer>
-  <script type="module" src="./index.js"></script>
+  <script type="module" src="./favorites.js"></script>
 </body>
 </html>
+

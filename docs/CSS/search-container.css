@@ -1,0 +1,57 @@
+.search-container{
+  display: flex;
+  justify-content: center;
+}
+
+.image-search-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  width: var(--imgss-w);
+  height: var(--imgss-h);
+  flex-direction: column;
+  margin-top: var(--imgss-mt);
+  margin-bottom: var(--imgss-mb);
+}
+
+h1{
+  font-size: var(--h1-fs);
+  font-weight: var(--h1-fw);
+  color:var(--color-h1);
+}
+
+.highlight{
+  color: var(--color-highlight);
+}
+
+form{
+  display: flex;
+  width: var(--form-w);
+  flex-direction: row;
+  position: relative;
+}
+
+.search-input{
+  width: var(--search-input-w);
+  background-color: var(--search-input-bg-c);
+  border: none;
+  padding: var(--search-input-p);
+  border-radius: var(--search-input-r);
+}
+
+input::placeholder{
+  color:var(--color-input-placeholder);
+  font-family: "Montserrat";
+}
+
+.search-button{
+  position: absolute;
+  top: var(--search-b-top);
+  right: var(--search-b-right);
+  width: var(--search-b-w);
+  height: var(--search-b-h);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}

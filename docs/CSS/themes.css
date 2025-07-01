@@ -1,0 +1,45 @@
+
+.light-theme{
+  --header-and-footer-bi: linear-gradient(0.25turn, #343333, #484848, #282828);
+  --color-nav: #FFFDFA;
+  --color-nav-and-a-hover: #dcdde1;
+  --color-highlight: #F17900;
+  --color-input-placeholder: #C4C4C4;
+  --search-input-bg-c: #3939390D;
+  --color-copyright-and-gallery-info-and-a: #FFFFFF99;
+  --color-title: #E0A449;
+  --color-modal-btn: #F17900;
+  --color-body: #ffffff;
+  --color-h1: #000000;
+  --bg-color-nav: #000000;
+}
+
+.dark-theme{
+  --header-and-footer-bi: linear-gradient(90deg,rgba(0, 0, 0, 1) 0%, rgba(23, 21, 21, 1) 50%, rgba(0, 0, 0, 1) 100%);
+  --color-nav: #ffffff;
+  --color-nav-and-a-hover: #a4b0be;
+  --color-highlight: #814101;
+  --color-input-placeholder: #000000;
+  --search-input-bg-c: #a5b1c2;
+  --color-copyright-and-gallery-info-and-a: #ffffff;
+  --color-title: #ba7308;
+  --color-modal-btn: #693500;
+  --color-body: #161515;
+  --color-h1: #ffffff;
+  --bg-color-nav: #000000;
+}
+
+.multi-colored-theme{
+  --header-and-footer-bi: linear-gradient(90deg,rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+  --color-nav: #000000;
+  --color-nav-and-a-hover: #2f3542;
+  --color-highlight: #ff6348;
+  --color-input-placeholder: #000000;
+  --search-input-bg-c: #dfe4ea;
+  --color-copyright-and-gallery-info-and-a: #000000;
+  --color-title: #2ed573;
+  --color-modal-btn: #ff6b81;
+  --color-body: #ced6e0;
+  --color-h1: #000000;
+  --bg-color-nav: #dfe4ea;
+}
