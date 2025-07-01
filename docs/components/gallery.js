@@ -1,12 +1,8 @@
 import { store, galleryContent } from "./variables.js";
-import {CLIENT_ID} from "../../config.js" //Чисто для того чтобы пока не деплоить 
-
-//Функцию ниже удалить 
 
 export const fetchPhotos = async () => {
     try {
-        const link = `https://api.unsplash.com/photos/random?client_id=${CLIENT_ID}&count=12`;
-        const response = await fetch(link);
+        const response = await fetch('/.netlify/functions/getPhotos');
         const data = await response.json();
 
         if (response.ok && data.length){
@@ -19,22 +15,6 @@ export const fetchPhotos = async () => {
         console.log(error);
     }
 }
-
-// export const fetchPhotos = async () => {
-//     try {
-//         const response = await fetch('/.netlify/functions/getPhotos');
-//         const data = await response.json();
-
-//         if (response.ok && data.length){
-//             store.originalState = data;
-//             store.state = [...store.originalState];
-//             console.log(store.state)
-//             setPhotos();
-//         }
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
 
 export const renderItem = (photos) => {
   return photos.map(({ urls: { regular }, alt_description }, index) => {
